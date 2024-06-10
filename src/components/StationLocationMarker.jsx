@@ -2,42 +2,50 @@ import { Marker, Popup } from 'react-leaflet'
 import trafficServices from '../services/trafficServices'
 import { useEffect, useState } from 'react'
 
-const StationLocationMarker = ({ location }) => {
+const StationLocationMarker = ({ location, setStationData2 }) => {
     return (
         <Marker position={[location.geometry.coordinates[1], location.geometry.coordinates[0] ]}>
             <Popup>
-                <LocationPictures location={location}/>
+                <LocationPictures location={location} setStationData2={setStationData2}/>
             </Popup>
         </Marker>
     )
 }
 
-const LocationPictures = ( { location }) => {
+const LocationPictures = ( { location, setStationData2 }) => {
     const [stationData, setStationData] = useState([])
-    console.log(location.id)
+    const [index, setIndex] = useState(0)
     useEffect(() => {
         trafficServices.getTrafficCamera(location.id).then(station =>
             setStationData(station.properties.presets)
         )
+        trafficServices.getTrafficCamera(location.id).then(station =>
+            //setStationData2(station.properties.presets)
+            setStationData2(station.properties)
+        )
     }, [])
 
-    useEffect(() => {
-        console.log(stationData)
-    }, [stationData])
+    const handleClick = () => {
+        setStationData2(stationData)
+        if (index === stationData.length - 1) {
+            setIndex(0)
+        } else {
+            setIndex(index + 1)
+        }
+    }
 
     return (
-        <div style={{width: "400px", height: "300px"}}>
+        <div>
            <h4>Station name: {location.properties.name}</h4>
            {stationData.length > 0 && (
              <div>
-                <p>{stationData[0].presentationName}</p>
+                <p>{stationData[index].presentationName}</p>
                 <div style={{ display: "flex", alignItems: "center"}}>
-                  <img style={{ width: "200px", height: "200px"}} src={stationData[0].imageUrl} alt="Image"/>
-                  <button className="nextButton">next</button>
+                  {/*<img style={{ width: "230px", height: "230px"}} src={stationData[index].imageUrl} alt="Image"/>*/}
+                  {/*<button onClick={handleClick} className="nextButton">next</button>*/}
                 </div>
              </div>
            )}
-           {/*<a href={stationData[0].imageUrl}>{stationData[0].imageUrl}</a>*/}
         </div>
     )
 }

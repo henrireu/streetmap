@@ -8,8 +8,10 @@
   background-color: lightgrey;
   border: solid lightgrey;
   margin-left: 10px;
-  height: 30px;
-  width: 50px;
+  margin-top: 10px;
+  height: 40px;
+  width: 70px;
+  border-radius: 4px;
 }
 
 .nextButton:hover {
