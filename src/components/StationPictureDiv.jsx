@@ -17,14 +17,15 @@ const StationPictureDiv = ({ stationData }) => {
               <h3 style={{margin: "1px"}}>{stationData.names.fi}</h3>
               <p style={{margin: "1px"}}>Kameran suunta: {stationData.presets[index].presentationName}</p>
               <img style={{ width: "85%", height: "100%", borderRadius: "4px"}} src={stationData.presets[index].imageUrl} alt="Image" />
-              <button onClick={handleClick} className="nextButton">next</button>
+              <button onClick={handleClick} className="nextButton">seuraava</button>
             </div>
         )
     }
 
     return (
         <div style={divStyle}>
-            <img style={{ width: "85%", height: "100%", borderRadius: "4px"}} src={"https://weathercam.digitraffic.fi/C0450701.jpg"} alt="Image" />
+            {/*<img style={{ width: "85%", height: "100%", borderRadius: "4px"}} src={"https://weathercam.digitraffic.fi/C0450701.jpg"} alt="Image" />*/}
+            <h1>valitse kamera!</h1>
         </div>
     )  
 }

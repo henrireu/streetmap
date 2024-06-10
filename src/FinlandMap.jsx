@@ -43,6 +43,13 @@ const FinlandMap = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="Liikennekamerat">
+            <LayerGroup>
+              {stationLocationData.map(location => (
+                <StationLocationMarker key={location.id} location={location} setStationData2={setStationData2}/>
+              ))}
+            </LayerGroup>
+          </LayersControl.BaseLayer>
           <LayersControl.BaseLayer name="Liikennetiedotteet">
             <LayerGroup>
               {messageData.map(message => (
@@ -50,18 +57,11 @@ const FinlandMap = () => {
               ))}
             </LayerGroup>
           </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Liikennekamerat">
-            <LayerGroup>
-              {stationLocationData.map(location => (
-                <StationLocationMarker key={location.id} location={location} setStationData2={setStationData2}/>
-              ))}
-            </LayerGroup>
-          </LayersControl.BaseLayer>
         </LayersControl>
       </MapContainer>
 
       <StationPictureDiv stationData={stationData2}/>
-      
+
     </div>
   )
 }
