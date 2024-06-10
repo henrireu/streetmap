@@ -1,0 +1,19 @@
+.mapdiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nextButton {
+  background-color: lightgrey;
+  border: solid lightgrey;
+  margin-left: 10px;
+  height: 30px;
+  width: 50px;
+}
+
+.nextButton:hover {
+  cursor: pointer;
+  background-color: grey;
+  border: solid grey;
+}
