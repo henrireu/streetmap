@@ -1,0 +1,55 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Moderni fontti */
+    color: #333; /* Tummanharmaa väri */
+    background-color: #f7f7f7; /* Vaalea taustaväri */
+    line-height: 1.6; /* Hyvä riviväli */
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50; /* Tummempi väri otsikoille */
+    font-weight: 600; /* Lihavoidut otsikot */
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .mapdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nextButton {
+    background-color: #f0f0f0;
+    border: solid #f0f0f0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 45px;
+    width: 80px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  
+  .nextButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: solid black;
+  }
+
+  .saveButton {
+    background-color: lightgrey;
+    border: solid lightgrey;
+    height: 30px;
+    width: 70px;
+    border-radius: 4px;
+  }
+  
+  .saveButton:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: solid black;
+  }
+

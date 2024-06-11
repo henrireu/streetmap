@@ -10,7 +10,6 @@ const getTrafficMessages = () => {
 const getTrafficStationCoordinates = () => {
     const response = axios.get('https://tie.digitraffic.fi/api/weathercam/v1/stations')
     return response.then(response => {
-        console.log(response.data)
         return response.data.features
     })
 }
