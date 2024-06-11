@@ -3,6 +3,7 @@ import trafficServices from '../services/trafficServices'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { saveLocation, deleteLocation } from '../reducers/savedLocationReducer'
+import { setMessage } from '../reducers/messageReducer'
 
 const StationLocationMarker = ({ location, setStationData2, saved }) => {
     return (
@@ -16,7 +17,6 @@ const StationLocationMarker = ({ location, setStationData2, saved }) => {
 
 const LocationPictures = ( { location, setStationData2, saved }) => {
     const [stationData, setStationData] = useState([])
-    const [index, setIndex] = useState(0)
 
     const dispatch = useDispatch()
 
@@ -32,9 +32,11 @@ const LocationPictures = ( { location, setStationData2, saved }) => {
     }, [])
 
     const handleSave = () => {
-        //saveLocation(stationData)
         dispatch(saveLocation(stationData))
-        //console.log(stationData)
+        dispatch(setMessage("asema lisätty"))
+        setTimeout(() => {
+            dispatch(setMessage(""))
+        }, 2000)
     }
     const handleDelete = () => {
         dispatch(deleteLocation(stationData))

@@ -7,7 +7,12 @@ const savedLocationSlice = createSlice({
     reducers: {
         saveLocation(state, action) {
             const savedLocation = action.payload
-            state.push(savedLocation)
+            const exists = state.some(location => location.id === savedLocation.id)
+            if (!exists) {
+                state.push(savedLocation);
+            } else {
+                console.log(`ID ${savedLocation.id} already exists in the list.`);
+            }
         },
         deleteLocation(state, action) {
             const deleteLocation = action.payload
