@@ -1,19 +1,23 @@
+import { useEffect } from 'react'
 import FinlandMap from "./FinlandMap"
-import { useSelector } from "react-redux"
-import messageReducer from "./reducers/messageReducer"
+import { useDispatch } from "react-redux"
+import trafficServices from "./services/trafficServices"
+import { setLocations } from "./reducers/locationReducer"
+import Message from './components/Message'
 
 function App() {
 
-  const message = useSelector((state) => state.message)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    trafficServices
+      .getTrafficStationCoordinates().then(stationLocations => dispatch(setLocations(stationLocations)))
+  },[])
 
   return (
     <div>
       <h1 style={{textAlign: "center"}}>Karttasovellus</h1>
-      {message !== "" && (
-        <div className="message">
-          {message}
-        </div>
-      )}
+      <Message />
       <FinlandMap />
     </div>
   )

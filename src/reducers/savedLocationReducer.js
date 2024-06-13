@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const savedLocationSlice = createSlice({
     name: 'savedLocations',
-    //tähän initialStateen jossain kohtaan localstorageen tallennetut kamerat
     initialState: [],
     reducers: {
         saveLocation(state, action) {
@@ -17,9 +16,13 @@ const savedLocationSlice = createSlice({
         deleteLocation(state, action) {
             const deleteLocation = action.payload
             return state.filter(location => location.id !== deleteLocation.id)
+        },
+        // tämä on bugeja varten vaa
+        deleteLastLocation(state,action) {
+            return state.slice(0, -1)
         }
     }
 })
 
-export const { saveLocation, deleteLocation } = savedLocationSlice.actions
+export const { saveLocation, deleteLocation, deleteLastLocation } = savedLocationSlice.actions
 export default savedLocationSlice.reducer

@@ -2,77 +2,48 @@ import { Marker, Popup } from 'react-leaflet'
 import trafficServices from '../services/trafficServices'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { saveLocation, deleteLocation } from '../reducers/savedLocationReducer'
-import { setMessage } from '../reducers/messageReducer'
+import { setCurrentLocation } from '../reducers/currentLocationReducer'
 
-const StationLocationMarker = ({ location, setStationData2, saved }) => {
+const StationLocationMarker = ({ location, setStationData2 }) => {
+    const dispatch = useDispatch()
+    const handleClick = (e) => {
+        trafficServices.getTrafficCamera(location.id).then(station =>
+            dispatch(setCurrentLocation(station))
+        )
+    }
+
     return (
-        <Marker position={[location.geometry.coordinates[1], location.geometry.coordinates[0] ]}>
+        <Marker 
+          position={[location.geometry.coordinates[1], location.geometry.coordinates[0]]}
+          eventHandlers={{ click: handleClick}}
+        >
             <Popup>
-                <LocationPictures location={location} setStationData2={setStationData2} saved={saved}/>
+                <h4>Station name: {location.properties.name}</h4>
+                <LocationPictures location={location} setStationData2={setStationData2} />
             </Popup>
         </Marker>
     )
 }
 
-const LocationPictures = ( { location, setStationData2, saved }) => {
+const LocationPictures = ( { location, setStationData2 }) => {
     const [stationData, setStationData] = useState([])
-
-    const dispatch = useDispatch()
 
     useEffect(() => {
         trafficServices.getTrafficCamera(location.id).then(station =>
             setStationData(station)
-            //console.log(station.properties)
         )
         trafficServices.getTrafficCamera(location.id).then(station =>
-            //setStationData2(station.properties.presets)
-            setStationData2(station.properties)
+            setStationData2(station)
         )
     }, [])
 
-    const handleSave = () => {
-        dispatch(saveLocation(stationData))
-        dispatch(setMessage("asema lisätty"))
-        setTimeout(() => {
-            dispatch(setMessage(""))
-        }, 2000)
-    }
-    const handleDelete = () => {
-        dispatch(deleteLocation(stationData))
-        console.log(stationData)
-    }
-
-    if (stationData) {
+    /*if (stationData) {
         return (
             <div>
                <h4>Station name: {location.properties.name}</h4>
-                 <div>
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      {saved === false ? (
-                         <button onClick={handleSave} className="saveButton">Tallenna</button>
-                      ) : (
-                        <button onClick={handleDelete} className="saveButton">Poista</button>
-                      )}
-                    </div>
-                 </div>  
             </div>
         )
-    }
-
-    /*return (
-        <div>
-           <h4>Station name: {location.properties.name}</h4>
-           {stationData.length > 0 && (
-             <div>
-                {/*<p>{stationData[index].presentationName}</p>*/}
-                {/*<div style={{ display: "flex", alignItems: "center" }}>
-                  <button onClick={handleSave} className="saveButton">Tallenna</button>
-                </div>
-             </div>
-           )}
-        </div>
-    )*/
+    }*/
 }
 
 export default StationLocationMarker

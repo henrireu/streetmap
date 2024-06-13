@@ -6,6 +6,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import savedLocationReducer from './reducers/savedLocationReducer.js'
 import messageReducer from './reducers/messageReducer.js'
+import locationReducer from './reducers/locationReducer.js'
+import currentLocationReducer from './reducers/currentLocationReducer.js'
 
 const loadState = () => {
   try {
@@ -32,7 +34,9 @@ const saveState = (state) => {
 const store = configureStore({
   reducer: {
       savedLocations: savedLocationReducer,
-      message: messageReducer
+      message: messageReducer,
+      locations: locationReducer,
+      currentLocation: currentLocationReducer
   },
   preloadedState: {
       savedLocations: loadState() || [], 
