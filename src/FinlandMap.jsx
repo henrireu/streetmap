@@ -8,14 +8,12 @@ import { useSelector, useDispatch } from 'react-redux'
 //https://www.digitraffic.fi/tieliikenne/#liikennetiedotteet
 
 const FinlandMap = () => {
-  const [stationData, setStationData] = useState(null)
   const [currentState, setCurrentState] = useState('all')
 
   const locations = useSelector((state) => state.locations)
-
   const savedLocations = useSelector((state) => state.savedLocations)
-
   const currentLocation = useSelector((state) => state.currentLocation)
+
  
   return (
     <div className="mapdiv">
@@ -41,11 +39,7 @@ const FinlandMap = () => {
                 }
             }}>
               {locations.map(location => (
-                <StationLocationMarker 
-                  key={location.id} 
-                  location={location} 
-                  setStationData2={setStationData}
-                />
+                <StationLocationMarker key={location.id} location={location} />
               ))}
             </LayerGroup>
           </LayersControl.BaseLayer>
@@ -56,13 +50,10 @@ const FinlandMap = () => {
                 add: (e) => {
                   setCurrentState('saved')
                 }
-            }}>
+              }}
+            >
               {savedLocations.map(location => (
-                <StationLocationMarker 
-                  key={location.id} 
-                  location={location} 
-                  setStationData2={setStationData}
-                />
+                <StationLocationMarker key={location.id} location={location} />
               ))}
             </LayerGroup>
           </LayersControl.BaseLayer>
@@ -70,7 +61,7 @@ const FinlandMap = () => {
         </LayersControl>
       </MapContainer>
 
-      <StationPictureDiv stationData={stationData} currentState={currentState}/>
+      <StationPictureDiv currentState={currentState}/>
 
     </div>
   )

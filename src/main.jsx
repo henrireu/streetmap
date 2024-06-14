@@ -8,6 +8,7 @@ import savedLocationReducer from './reducers/savedLocationReducer.js'
 import messageReducer from './reducers/messageReducer.js'
 import locationReducer from './reducers/locationReducer.js'
 import currentLocationReducer from './reducers/currentLocationReducer.js'
+import indexReducer from './reducers/indexReducer.js'
 
 const loadState = () => {
   try {
@@ -36,7 +37,8 @@ const store = configureStore({
       savedLocations: savedLocationReducer,
       message: messageReducer,
       locations: locationReducer,
-      currentLocation: currentLocationReducer
+      currentLocation: currentLocationReducer,
+      index: indexReducer
   },
   preloadedState: {
       savedLocations: loadState() || [], 

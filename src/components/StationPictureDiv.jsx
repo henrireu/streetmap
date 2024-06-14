@@ -1,37 +1,24 @@
-import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveLocation, deleteLocation } from '../reducers/savedLocationReducer'
 import { setMessage } from '../reducers/messageReducer'
+import { setIndex } from '../reducers/indexReducer'
 
-const StationPictureDiv = ({ stationData, currentState }) => {
-    const [index, setIndex] = useState(0)
-    const [loading, setLoading] = useState(true)
-
+const StationPictureDiv = ({ currentState }) => {
     const dispatch = useDispatch()
 
     const currentLocation = useSelector((state) => state.currentLocation)
-
-    useEffect(() => {
-        setLoading(true)
-        const loadingFunction = () => {
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000)
-        }
-        loadingFunction()
-    },[currentLocation])
+    const index = useSelector((state) => state.index)
 
     const handleNext = () => {
         if (index === currentLocation.properties.presets.length - 1) {
-            setIndex(0)
+            dispatch(setIndex(0))
         } else {
-            setIndex(index + 1)
+            dispatch(setIndex(index + 1))
         }
     }
 
     const handleSave = () => {
-        console.log(stationData)
-        dispatch(saveLocation(stationData))
+        dispatch(saveLocation(currentLocation))
         dispatch(setMessage('asema tallennettu'))
         setTimeout(() => {
             dispatch(setMessage(""))
@@ -39,22 +26,14 @@ const StationPictureDiv = ({ stationData, currentState }) => {
     }
 
     const handleDelete = () => {
-        dispatch(deleteLocation(stationData))
+        dispatch(deleteLocation(currentLocation))
         dispatch(setMessage('asema poistettu'))
         setTimeout(() => {
             dispatch(setMessage(""))
         }, 3000)
     }
 
-    if (loading) {
-        return (
-            <div style={divStyle} className="loading-screen">
-                <h1>Loading...</h1>
-            </div>
-        )
-    }
-
-    if (currentLocation !== null && loading === false) {
+    if (currentLocation !== null) {
         return (
             <div style={divStyle}>
               <h3 style={{margin: "1px"}}>{currentLocation.properties.names.fi}</h3>
@@ -70,25 +49,7 @@ const StationPictureDiv = ({ stationData, currentState }) => {
               </div>
             </div>
         )
-    } 
-
-    /*if (stationData !== null) {
-        return (
-            <div style={divStyle}>
-              <h3 style={{margin: "1px"}}>{stationData.properties.names.fi}</h3>
-              <p style={{margin: "1px"}}>Kameran suunta: {stationData.properties.presets[index].presentationName}</p>
-              <img style={{ width: "85%", height: "100%", borderRadius: "4px"}} src={stationData.properties.presets[index].imageUrl} alt="Image" />
-              <div className="buttonDiv">
-                {currentState === 'all' ? (
-                  <button onClick={handleSave} className="nextButton left">Tallenna</button>
-                ) : (
-                  <button onClick={handleDelete} className="nextButton left">Poista</button>
-                )}
-                <button onClick={handleNext} className="nextButton right">Seuraava</button>
-              </div>
-            </div>
-        )
-    } */
+    }
 
     return (
         <div style={divStyle} className="natural-green">
