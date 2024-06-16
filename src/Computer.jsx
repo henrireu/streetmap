@@ -6,16 +6,15 @@ import { useSelector } from 'react-redux'
 
 //https://www.digitraffic.fi/tieliikenne/#liikennetiedotteet
 
+// tee radiobuttoneilla version control joko tietokone tai mobiili
 // sitten tyyliparannuksia ja mediaqueryllä eri näyttökokoille sopivaksi
 // tee jossain kohtaa vielä eri kategoria että näyttää vain maisema kuvat
 
-const FinlandMap = () => {
+const Computer = () => {
   const [currentState, setCurrentState] = useState('all')
 
   const locations = useSelector((state) => state.locations)
   const savedLocations = useSelector((state) => state.savedLocations)
-  const currentLocation = useSelector((state) => state.currentLocation)
-
  
   return (
     <div className="mapdiv">
@@ -25,7 +24,8 @@ const FinlandMap = () => {
         zoom={6}
         scrollWheelZoom={true}
         minZoom={4}
-        style={{ height: "60vh", width: "45%", borderRadius: "4px", margin: "20px" }}
+        //style={{ height: "60vh", width: "45%", borderRadius: "4px", margin: "20px" }}
+        className="mapstyle"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -69,4 +69,4 @@ const FinlandMap = () => {
   )
 }
 
-export default FinlandMap;
+export default Computer

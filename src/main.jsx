@@ -9,6 +9,7 @@ import messageReducer from './reducers/messageReducer.js'
 import locationReducer from './reducers/locationReducer.js'
 import currentLocationReducer from './reducers/currentLocationReducer.js'
 import indexReducer from './reducers/indexReducer.js'
+import versionControlReducer from './reducers/versionControlReducer.js'
 
 const loadState = () => {
   try {
@@ -38,7 +39,8 @@ const store = configureStore({
       message: messageReducer,
       locations: locationReducer,
       currentLocation: currentLocationReducer,
-      index: indexReducer
+      index: indexReducer,
+      version: versionControlReducer
   },
   preloadedState: {
       savedLocations: loadState() || [], 
