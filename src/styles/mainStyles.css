@@ -1,15 +1,15 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Moderni fontti */
-    color: #333; /* Tummanharmaa väri */
-    background-color: #f7f7f7; /* Vaalea taustaväri */
-    line-height: 1.6; /* Hyvä riviväli */
+    font-family: 'Roboto', sans-serif; 
+    color: #333; 
+    background-color: #f7f7f7; 
+    line-height: 1.6; 
     margin: 0;
     padding: 0;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    color: #2c3e50; /* Tummempi väri otsikoille */
-    font-weight: 600; /* Lihavoidut otsikot */
+    color: #2c3e50; 
+    font-weight: 600;
     margin-top: 0;
     margin-bottom: 16px;
   }
@@ -18,6 +18,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .picturediv {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    height: 60vh; 
+    width: 45%; 
+    border-radius: 8px;
+    margin: 20px;
+    gap: 1px;
+    background-color: #d9d9d9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .nextButton {
@@ -53,9 +66,19 @@ body {
     border: solid black;
   }
 
-  .message {
+  .greenmessage {
     border: solid 2px green;
     background-color: lightgreen;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 8px;
+  }
+
+  .redmessage {
+    border: solid 2px red;
+    background-color: rgb(237, 168, 168);
     font-size: 20px;
     text-align: center;
     margin-left: 80px;

@@ -1,4 +1,4 @@
-import { Marker, Popup } from 'react-leaflet'
+import { Marker, Popup, Tooltip } from 'react-leaflet'
 import trafficServices from '../services/trafficServices'
 import { useDispatch } from 'react-redux'
 import { setCurrentLocation } from '../reducers/currentLocationReducer'
@@ -12,15 +12,17 @@ const StationLocationMarker = ({ location }) => {
             dispatch(setCurrentLocation(station))
         )
     }
+    console.log(location)
 
     return (
         <Marker 
           position={[location.geometry.coordinates[1], location.geometry.coordinates[0]]}
           eventHandlers={{ click: handleClick}}
         >
-            <Popup>
-                <h4>Station name: {location.properties.name}</h4>
-            </Popup>
+          <Tooltip>{location.properties.name}</Tooltip>
+          <Popup>
+            <h4>Station name: {location.properties.name}</h4>
+          </Popup>
         </Marker>
     )
 }

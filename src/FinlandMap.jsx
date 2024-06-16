@@ -1,16 +1,12 @@
-import { MapContainer, TileLayer, LayersControl, LayerGroup } from 'react-leaflet';
-//import 'leaflet/dist/leaflet.css';
-import { useState, useEffect } from 'react'
+import { MapContainer, TileLayer, LayersControl, LayerGroup } from 'react-leaflet'
+import { useState } from 'react'
 import StationLocationMarker from './components/StationLocationMarker'
 import StationPictureDiv from './components/StationPictureDiv'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 //https://www.digitraffic.fi/tieliikenne/#liikennetiedotteet
 
-// seuraavaksi markeri vercel sivulla kuntoon
-// sitten kun hover niin näyttää jotain tietoa markerista
 // sitten tyyliparannuksia ja mediaqueryllä eri näyttökokoille sopivaksi
-// sitten message kuntoon että poistossa tulee punainen ja lisäyksessä vihreä, tee stateen objekti että viesti: viesti, väri: väri
 // tee jossain kohtaa vielä eri kategoria että näyttää vain maisema kuvat
 
 const FinlandMap = () => {
@@ -23,7 +19,7 @@ const FinlandMap = () => {
  
   return (
     <div className="mapdiv">
-      <button onClick={() => console.log(currentLocation)}>testi</button>
+      {/*<button onClick={() => console.log(currentLocation)}>testi</button>*/}
       <MapContainer
         center={[64.0, 26.0]} 
         zoom={6}
