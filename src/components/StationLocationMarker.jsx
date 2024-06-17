@@ -75,9 +75,9 @@ const MobilePictureDiv = ({ currentState }) => {
 
   
   return (
-    <div style={{width: "250px", height: "250px"}}>
+    <div style={{width: "220px", height: "220px"}}>
       <p style={{margin: "0"}}>Kameran suunta: {currentLocation.properties.presets[index].presentationName}</p>
-      <img style={{width: "240px", height: "200px", borderRadius: "8px"}} src={currentLocation.properties.presets[index].imageUrl} alt="Image" />
+      <img style={{width: "210px", height: "170px", borderRadius: "8px"}} src={currentLocation.properties.presets[index].imageUrl} alt="Image" />
       <div className="buttonDiv">
         {currentState === 'all' ? (
           <button onClick={handleSave} style={buttonStyle} className="nextButton">Tallenna</button>
