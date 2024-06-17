@@ -17,7 +17,7 @@ const VersionControl = () => {
     return (
       <div className="version-control">
         <label className="radio-container">
-          Tietokoneversio
+          Tietokone
           <input
             type="radio"
             name="version"
