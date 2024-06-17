@@ -1,12 +1,11 @@
 import { MapContainer, TileLayer, LayersControl, LayerGroup } from 'react-leaflet'
 import { useState } from 'react'
 import StationLocationMarker from './components/StationLocationMarker'
-import StationPictureDiv from './components/StationPictureDiv'
 import { useSelector } from 'react-redux'
 
 //https://www.digitraffic.fi/tieliikenne/#liikennetiedotteet
 
-// tee radiobuttoneilla version control joko tietokone tai mobiili
+// mieti kannattaako tehdä erillistä Mobile.jsx tiedostoa vai teetkö ne if lausekkeilla komponenteissa
 // sitten tyyliparannuksia ja mediaqueryllä eri näyttökokoille sopivaksi
 // tee jossain kohtaa vielä eri kategoria että näyttää vain maisema kuvat
 
@@ -39,7 +38,7 @@ const Mobile = () => {
                 }
             }}>
               {locations.map(location => (
-                <StationLocationMarker key={location.id} location={location} />
+                <StationLocationMarker key={location.id} location={location} currentState={currentState}/>
               ))}
             </LayerGroup>
           </LayersControl.BaseLayer>
@@ -53,7 +52,7 @@ const Mobile = () => {
               }}
             >
               {savedLocations.map(location => (
-                <StationLocationMarker key={location.id} location={location} />
+                <StationLocationMarker key={location.id} location={location} currentState={currentState}/>
               ))}
             </LayerGroup>
           </LayersControl.BaseLayer>

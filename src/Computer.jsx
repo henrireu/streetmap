@@ -58,7 +58,7 @@ const Computer = () => {
                 <StationLocationMarker key={location.id} location={location} />
               ))}
             </LayerGroup>
-          </LayersControl.BaseLayer>
+          </LayersControl.BaseLayer> 
 
         </LayersControl>
       </MapContainer>
