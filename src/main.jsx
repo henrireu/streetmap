@@ -11,6 +11,7 @@ import currentLocationReducer from './reducers/currentLocationReducer.js'
 import indexReducer from './reducers/indexReducer.js'
 import versionControlReducer from './reducers/versionControlReducer.js'
 
+
 const loadState = () => {
   try {
       const serializedState = localStorage.getItem('savedLocations')

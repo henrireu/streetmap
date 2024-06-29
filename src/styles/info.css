@@ -1,0 +1,53 @@
+.info-div {
+    position: absolute; /* Position relative to the button's container */
+    top: 100%; /* Position immediately below the button */
+    right: 5%; /* Align to the right edge of the button */
+    background-color: white; /* Fully opaque background color */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 2000; /* Ensure it appears above other content, higher value */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    max-width: 40%; /* Ensure it does not exceed 50% of the screen width */
+    width: auto; /* Automatically adjust the width based on content */
+    opacity: 1; /* Ensure full opacity */
+    pointer-events: auto; /* Ensure interaction is possible */
+  }
+
+  .info-button {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded button */
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    font-size: 20px; /* Larger font size */
+    display: flex; /* Flexbox for centering text */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-family: "Times New Roman", Times, serif;
+  }
+
+.info-button:hover {
+    cursor: pointer;
+}
+
+  .info-header {
+    display: flex;
+    justify-content: flex-end; /* Move the button to the right */
+  }
+  
+  .info-content {
+    padding: 20px;
+    border-radius: 10px;
+    background: white; /* Ensure content background is also fully opaque */
+  }
+  
+  .info-div button {
+    border: solid 1px grey;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    color: grey;
+  }
