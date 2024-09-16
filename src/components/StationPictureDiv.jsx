@@ -50,7 +50,6 @@ const StationPictureDiv = ({ currentState }) => {
             </div>
         )
     }
-
     return (
         <div className="picturediv">
             <h1>valitse kamera!</h1>

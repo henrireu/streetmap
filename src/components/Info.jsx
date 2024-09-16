@@ -18,6 +18,7 @@ const Info = () => {
   )
 }
 
+// eslint-disable-next-line react/prop-types
 const InfoDiv = ({ handleInfo }) => {
   return (
     <div className="info-div">

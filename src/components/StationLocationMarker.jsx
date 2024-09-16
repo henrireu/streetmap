@@ -18,7 +18,7 @@ const StationLocationMarker = ({ location, currentState }) => {
     }
 
     return (
-        <Marker 
+        <Marker
           position={[location.geometry.coordinates[1], location.geometry.coordinates[0]]}
           eventHandlers={{ click: handleClick}}
         >
@@ -75,7 +75,7 @@ const MobilePictureDiv = ({ currentState }) => {
 
   
   return (
-    <div style={{width: "220px", height: "220px"}}>
+    <div style={{width: "220px", /*height: "220px",*/ }}>
       <p style={{margin: "0"}}>Kameran suunta: {currentLocation.properties.presets[index].presentationName}</p>
       <img style={{width: "210px", height: "170px", borderRadius: "8px"}} src={currentLocation.properties.presets[index].imageUrl} alt="Image" />
       <div className="buttonDiv">

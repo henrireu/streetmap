@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 // tee radiobuttoneilla version control joko tietokone tai mobiili
 // sitten tyyliparannuksia ja mediaqueryllä eri näyttökokoille sopivaksi
-// tee jossain kohtaa vielä eri kategoria että näyttää vain maisema kuvat
+// tee jossain kohtaa vielä eri kategoria että näyttää vain maisema kuvat 
 
 const Computer = () => {
   const [currentState, setCurrentState] = useState('all')
