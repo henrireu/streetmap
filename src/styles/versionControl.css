@@ -27,17 +27,17 @@
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #bbb; /* Valitsematon tila on tummempi ja harmaampi */
+    background-color: #bbb; 
     border-radius: 50%;
     transition: background-color 0.3s ease;
   }
   
   .radio-container:hover input ~ .checkmark {
-    background-color: #000; /* Hover-tila on musta */
+    background-color: #000;
   }
   
   .radio-container input:checked ~ .checkmark {
-    background-color: #2196F3; /* valittu tila on sininen*/
+    background-color: #2196F3; 
   }
   
   .checkmark:after {

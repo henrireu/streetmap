@@ -9,9 +9,6 @@ import Info from './components/Info'
 
 import Mobile from './Mobile'
 
-// tee info painike oikealle ylös painettaessa tulee infoa sivusta ja kameroista yleisesti. se tulee 
-// muun tavaran päälle
-
 function App() {
 
   const dispatch = useDispatch()
