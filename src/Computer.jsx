@@ -39,7 +39,7 @@ const Computer = () => {
                 add: (e) => {
                   setCurrentState('all')
                 }
-            }}>
+            }}> 
               {locations.map(location => (
                 <StationLocationMarker key={location.id} location={location} />
               ))}

@@ -19,7 +19,7 @@ const StationPictureDiv = ({ currentState }) => {
             dispatch(setIndex(index + 1))
         }
     }
-
+ 
     const handleSave = () => {
         dispatch(saveLocation(currentLocation))
         dispatch(setMessage({text: 'asema tallennettu', color: 'green'}))

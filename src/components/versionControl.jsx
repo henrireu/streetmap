@@ -16,8 +16,9 @@ const VersionControl = () => {
   
     return (
       <div className="version-control">
+        <div className="validiv">
         <label className="radio-container">
-          Tietokone
+          Näytä kartta ja kuva
           <input
             type="radio"
             name="version"
@@ -28,7 +29,7 @@ const VersionControl = () => {
           <span className="checkmark"></span>
         </label>
         <label className="radio-container">
-          Mobiili
+          Näytä kuva kartan päällä
           <input
             type="radio"
             name="version"
@@ -38,6 +39,7 @@ const VersionControl = () => {
           />
           <span className="checkmark"></span>
         </label>
+        </div>
       </div>
     );
   };

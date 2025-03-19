@@ -3,6 +3,11 @@
     justify-content: center;
     gap: 10px;
   }
+
+  .validiv {
+    display: flex;
+    gap: 20px;
+  }
   
   .radio-container {
     display: block;
@@ -57,4 +62,15 @@
     height: 8px;
     border-radius: 50%;
     background: white;
+  }
+
+  @media (max-width: 550px) {
+    .version-control {
+      flex-direction: column;
+      align-items: center;
+    }
+    .validiv {
+      flex-direction: column;
+      gap: 0;
+    }
   }

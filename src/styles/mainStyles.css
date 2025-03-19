@@ -16,6 +16,7 @@ body {
   
   .mapdiv {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }
@@ -109,6 +110,34 @@ body {
     display: flex;
     justify-content: space-between;
     width: 80%;
+  }
+
+  @media (max-width: 900px) {
+    .mapdiv {
+      flex-direction: column;
+    }
+
+    .mapstyle {
+      width: 85%;
+    }
+
+    .picturediv {
+      width: 85%;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .mobileMapstyle {
+      height: 65vh;
+    }
+
+    .mapstyle {
+      height: 65vh;
+    }
+
+    .picturediv {
+      height: 65vh;
+    }
   }
 
  
